@@ -1,33 +1,20 @@
 services:
   - type: web
-    name: laravel-render-app
+    name: laravel-app
     env: docker
-    plan: free
     dockerContext: .
     dockerfilePath: ./Dockerfile
-    buildCommand: ""
-    startCommand: ""
+    plan: free
     envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_KEY
-        generateValue: true
-      - key: APP_DEBUG
-        value: false
       - key: DB_CONNECTION
-        value: mysql
+        value: pgsql
       - key: DB_HOST
-        fromService:
-          name: laravel-db
-          type: pserv
+        value: dpg-d1fm6hqli9vc739mrhh0-a
+      - key: DB_PORT
+        value: 5432
       - key: DB_DATABASE
-        value: laravel
+        value: task_manager_db_d28i
       - key: DB_USERNAME
-        value: root
+        value: task_manager_db_d28i_user
       - key: DB_PASSWORD
-        value: password
-
-databases:
-  - name: laravel-db
-    databaseName: laravel
-    user: root
+        value: o9VfWLd1qeupHRKZ531r3dIoTOsgtySw
